@@ -1,6 +1,7 @@
 Event Sourcing demo application build in the cloud using hetrogeneouos technologies and web standards.
 
 Organisation Directory
+----------------------
 - A SPA used to maintain details of organisations
 	- nodejs
 	- breezejs
@@ -15,6 +16,7 @@ Organisation Directory
 	- AWS SimpleDB (Event Sourcing Repo)
 
 Contract Centre
+---------------
 - Website used to manage contracts for organisations
 	- ASP.NET MVC web App
 	- SQL Azure
