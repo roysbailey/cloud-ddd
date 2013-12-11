@@ -1,0 +1,97 @@
+﻿/*!
+ * Durandal 2.0.0 Copyright (c) 2012 Blue Spire Consulting, Inc. All Rights Reserved.
+ * Available via the MIT license.
+ * see: http://durandaljs.com or https://github.com/BlueSpire/Durandal for details
+ */
+
+.splash {
+    text-align: center;
+    margin: 10% 0 0 0;
+}
+
+    .splash .message {
+        font-size: 5em;
+        line-height: 1.5em;
+        -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+        text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+        text-transform: uppercase;
+    }
+
+    .splash .icon-spinner {
+        text-align: center;
+        display: inline-block;
+        font-size: 5em;
+        margin-top: 50px;
+    }
+
+.page-host {
+    position: relative;
+    top: 40px;
+}
+
+.navbar-fixed-top .navbar-inner {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.navbar-fixed-top .icon-home {
+    font-size: 18px;
+}
+
+.loader {
+    margin: 6px 8px 4px 8px;
+    visibility: hidden;
+}
+
+    .loader.active {
+        visibility: visible;
+    }
+
+@media (max-width: 979px) {
+    .page-host {
+        top: 0;
+    }
+
+    .navbar-fixed-top {
+        margin-bottom: 0;
+    }
+}
+
+
+#custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }

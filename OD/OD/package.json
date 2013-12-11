@@ -1,0 +1,13 @@
+{
+  "name": "NodejsApp1",
+  "version": "0.0.1",
+  "description": "NodejsApp1",
+  "main": "server.js",
+  "author": {
+    "name": "Roy",
+    "email": ""
+  },
+  "dependencies": {
+	"express": "x"
+}
+}

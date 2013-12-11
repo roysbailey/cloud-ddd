@@ -1,0 +1,19 @@
+﻿<section>
+    <h2 data-bind="html:displayName"></h2>
+    <blockquote data-bind="html:description"></blockquote>
+
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                    <span>Search for your provider:</span>
+                    <div class="input-append span12">
+                        <input type="text" class="search-query" placeholder="Search" data-bind="value: searchText">
+                        <button type="submit" class="btn"><i class="icon-search" data-bind="click: doSearch, clickBubble: false"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
