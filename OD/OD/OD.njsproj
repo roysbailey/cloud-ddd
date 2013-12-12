@@ -30,8 +30,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="public\app\main.js" />
+    <Compile Include="public\app\services\datacontext.js" />
     <Compile Include="public\app\services\logger.js" />
     <Compile Include="public\app\viewmodels\flickr.js" />
+    <Compile Include="public\app\viewmodels\searchresults.js" />
     <Compile Include="public\app\viewmodels\shell.js" />
     <Compile Include="public\app\viewmodels\welcome.js" />
     <Compile Include="public\scripts\bootstrap\js\bootstrap.js" />
@@ -69,6 +71,7 @@
     <Content Include="public\app\views\detail.html" />
     <Content Include="public\app\views\flickr.html" />
     <Content Include="public\app\views\shell.html" />
+    <Content Include="public\app\views\searchresults.html" />
     <Content Include="public\app\views\welcome.html" />
     <Content Include="public\css\ie10mobile.css" />
     <Content Include="public\css\starterkit.css" />

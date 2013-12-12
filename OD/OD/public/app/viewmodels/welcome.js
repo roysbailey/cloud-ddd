@@ -1,6 +1,6 @@
 ﻿define(
-    ['durandal/system', 'services/logger', 'knockout'],
-    function(system, logger, ko) {
+    ['plugins/router','durandal/system', 'services/logger', 'knockout'],
+    function(router, system, logger, ko) {
 
     var activate = function () {
         log('[Welcome] view activated', null, true);
@@ -8,6 +8,8 @@
 
     var doSearch = function () {
         log('Search clicked!', vm.searchText(), true);
+        var url = '#/searchresults/' + vm.searchText();
+        router.navigate(url);
     };
 
     var vm = 
