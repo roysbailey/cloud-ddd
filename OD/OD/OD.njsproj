@@ -32,6 +32,7 @@
     <Compile Include="public\app\main.js" />
     <Compile Include="public\app\services\datacontext.js" />
     <Compile Include="public\app\services\logger.js" />
+    <Compile Include="public\app\services\providerdata.js" />
     <Compile Include="public\app\viewmodels\flickr.js" />
     <Compile Include="public\app\viewmodels\searchresults.js" />
     <Compile Include="public\app\viewmodels\shell.js" />

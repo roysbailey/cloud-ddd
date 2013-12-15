@@ -13,6 +13,10 @@
             datacontext.getProviderPartials(providers, vm.searchText());
         };
 
+        var viewAttached = function(view) {
+            bindEventToList(view, '.session-brief', gotoDetails);
+        };
+
         var vm = 
         {
             activate: activate,
