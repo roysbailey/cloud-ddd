@@ -1,35 +1,35 @@
 ﻿define(
-    ['plugins/router','durandal/system', 'services/logger', 'knockout'],
-    function(router, system, logger, ko) {
+    ['plugins/router','durandal/system', 'services/logger', 'knockout', 'services/datacontext'],
+    function(router, system, logger, ko, datacontext) {
 
-    var activate = function () {
-        log('[Welcome] view activated', null, true);
-    };
+        var providers = ko.observableArray([]);
 
-    var doSearch = function () {
-        log('Search clicked!', vm.searchText(), true);
-        var url = '#/searchresults/' + vm.searchText();
-        router.navigate(url);
-    };
+        var activate = function () {
+            log('[Welcome] view activated', null, true);
+        };
 
-    var vm = 
-    {
-        activate: activate,
-        displayName: "Organisation Directory",
-        description: "Welcome to the Organisation Directory.  Please use the options below to select what you would like to do next",
-        doSearch: doSearch,
-        searchText: ko.observable("")
-    };
+        var doSearch = function () {
+            log('Search clicked!', vm.searchText(), true);
+            datacontext.getProviderPartials(providers, vm.searchText());
+        };
 
-    return vm;
+        var vm = 
+        {
+            activate: activate,
+            providers: providers,
+            displayName: "Organisation Directory",
+            description: "Welcome to the Organisation Directory.  Please use the options below to select what you would like to do next",
+            doSearch: doSearch,
+            searchText: ko.observable("")
+        };
 
-    //#region Internal Methods
+        return vm;
 
-    function log(msg, data, showToast) {
-        logger.log(msg, data, system.getModuleId(vm), showToast);
-    }
+        //#region Internal Methods
 
-    //#endregion
+        function log(msg, data, showToast) {
+            logger.log(msg, data, system.getModuleId(vm), showToast);
+        }
 
-
-});
+        //#endregion
+    });
