@@ -1,19 +1,13 @@
-﻿<section>
-    <h2 data-bind="html:displayName"></h2>
-    <blockquote data-bind="html:description"></blockquote>
-
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <form id="custom-search-form" class="form-search form-horizontal pull-right">
-                    <span>Search for your provider:</span>
-                    <div class="input-append span12">
-                        <input type="text" class="search-query" placeholder="Search" data-bind="value: searchText">
-                        <button type="submit" class="btn"><i class="icon-search" data-bind="click: doSearch, clickBubble: false"></i></button>
-                    </div>
-                </form>
+﻿<h2 data-bind="html:displayName"></h2>
+<blockquote data-bind="html:description"></blockquote>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <div class="input-group">
+            <label class="input-group-addon" for="search">Search for your provider:</label>
+            <input type="text" id="search" class="form-control" placeholder="Search" data-bind="value: searchText">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" data-bind="click: doSearch, clickBubble: false"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
     </div>
-
-</section>
+</form>

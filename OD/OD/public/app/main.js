@@ -1,12 +1,12 @@
 ﻿requirejs.config({
     paths: {
-        'text': '../scripts/require/text',
-        'durandal':'../scripts/durandal/js',
-        'plugins' : '../scripts/durandal/js/plugins',
-        'transitions' : '../scripts/durandal/js/transitions',
-        'knockout': '../scripts/knockout/knockout-2.3.0',
-        'bootstrap': '../scripts/bootstrap/js/bootstrap',
-        'jquery': '../scripts/jquery/jquery-1.9.1'
+        'text': '../scripts/bower_components/requirejs-text/text',
+        'durandal':'../scripts/bower_components/durandal/js',
+        'plugins' : '../scripts/bower_components/durandal/js/plugins',
+        'transitions' : '../scripts/bower_components/durandal/js/transitions',
+        'knockout': '../scripts/bower_components/knockout.js/knockout',
+        'bootstrap': '../scripts/bower_components/bootstrap/dist/js/bootstrap',
+        'jquery': '../scripts/bower_components/jquery/jquery'
     },
     shim: {
         'bootstrap': {
@@ -21,7 +21,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (s
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Durandal Starter Kit';
+    app.title = 'Org Directory';
 
     app.configurePlugins({
         router:true,
