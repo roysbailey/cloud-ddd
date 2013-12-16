@@ -2,10 +2,12 @@
     ['plugins/router','durandal/system', 'services/logger', 'knockout', 'services/datacontext'],
     function(router, system, logger, ko, datacontext) {
 
-        var providers = ko.observableArray([]);
-
         var activate = function () {
             log('[Welcome] view activated', null, true);
+        };
+
+        var attached = function(view) {
+            bindEventToList('#provider-results', 'tr', gotoDetails);
         };
 
         var doSearch = function () {
@@ -13,17 +15,16 @@
             datacontext.getProviderPartials(providers, vm.searchText());
         };
 
-        var viewAttached = function(view) {
-            bindEventToList(view, '.session-brief', gotoDetails);
-        };
+        var providers = ko.observableArray([]);
 
         var vm = 
         {
             activate: activate,
-            providers: providers,
+            attached: attached,
+            doSearch: doSearch,
             displayName: "Organisation Directory",
             description: "Welcome to the Organisation Directory.  Please use the options below to select what you would like to do next",
-            doSearch: doSearch,
+            providers: providers,
             searchText: ko.observable("")
         };
 
@@ -34,6 +35,25 @@
         function log(msg, data, showToast) {
             logger.log(msg, data, system.getModuleId(vm), showToast);
         }
+
+        function bindEventToList(rootSelector, selector, callback, eventName) {
+            var eName = eventName || 'click';
+            var parentItem = $(rootSelector);
+            parentItem.on(eName, selector, function() {
+                var provider = ko.dataFor(this);
+                callback(provider);
+                return false;
+            });
+        };
+
+        function gotoDetails(selectedProvider) {
+            if (selectedProvider && selectedProvider.ukprn) {
+               log('Selected provider to view', selectedProvider, true);
+               var url = '#/providerdetail/' + selectedProvider.ukprn;
+               log('Navigate to provider to view', url, true);
+               //router.navigateTo(url);
+            }
+        };
 
         //#endregion
     });
