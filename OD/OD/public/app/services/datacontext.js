@@ -59,7 +59,12 @@
                 };
         };
 
+        var saveProvider = function(provider) {
+            providerData.forEach(function(item, i) { if (item.ukprn == provider.ukprn) providerData[i] = provider; });
+        }
+
         var datacontext = {
+            saveProvider: saveProvider,
             getProviderPartials: getProviderPartials,
             createProvider: createProvider,
             getProviderByUkprn: getProviderByUkprn

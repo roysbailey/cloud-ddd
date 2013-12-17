@@ -1,8 +1,8 @@
 ﻿define(
-    ['durandal/system', 'services/logger', 'knockout', 'knockout.mapping', 'services/datacontext'],
-    function(system, logger, ko, komap, datacontext) {
+    ['plugins/router','durandal/system', 'services/logger', 'knockout', 'knockout.mapping', 'services/datacontext'],
+    function(router, system, logger, ko, komap, datacontext) {
     
-        var provider = {};
+        var provider = ko.observable();
 
         var activate = function (routeData) {
             log('[providerdetail] view activated', routeData, true);
@@ -12,15 +12,25 @@
                 // Note. as we have "required" ko mapping as a module, it is NOT put into the "ko" object as "ko.mapping"
                 // Instead, it is put into our "required" variable.
                 // so, instead of this... provider = ko.mapping.formJS(prov);  you do this...
-                provider = komap.fromJS(prov);
-                log('Provider loaded and [observable]', provider.ukprn(), true);
+                var obj = komap.fromJS(prov);
+                provider(obj);
+
+                log('Provider loaded and [observable]', provider().ukprn(), true);
             }
         };
+
+        var save = function() {
+            // Convert our observable into a POJO and save
+            var rawProvider = komap.toJS(provider);
+            datacontext.saveProvider(rawProvider);
+            router.navigate('#/');
+        }
 
         var vm = 
         {
             activate: activate,
-            provider: provider
+            provider: provider,
+            save: save
         };
 
         return vm;
