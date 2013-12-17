@@ -51,7 +51,7 @@
                log('Selected provider to view', selectedProvider, true);
                var url = '#/providerdetail/' + selectedProvider.ukprn;
                log('Navigate to provider to view', url, true);
-               //router.navigateTo(url);
+               router.navigate(url);
             }
         };
 

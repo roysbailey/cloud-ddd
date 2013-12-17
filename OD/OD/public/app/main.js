@@ -5,6 +5,7 @@
         'plugins' : '../scripts/bower_components/durandal/js/plugins',
         'transitions' : '../scripts/bower_components/durandal/js/transitions',
         'knockout': '../scripts/bower_components/knockout.js/knockout',
+        'knockout.mapping': '../scripts/bower_components/knockout.mapping/knockout.mapping',
         'bootstrap': '../scripts/bower_components/bootstrap/dist/js/bootstrap',
         'jquery': '../scripts/bower_components/jquery/jquery'
     },

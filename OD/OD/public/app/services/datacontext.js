@@ -37,15 +37,21 @@
             providersObservable(providers);
         }
         
-        var getProviderByUkprn = new function(ukprn) {
+        var getProviderByUkprn = function(ukprn) {
+            var provider = undefined;
             if (ukprn) {
-                providers = providerData.ukprn(function(item, index, array) {
-                    return item.ukprn === ukprn;
+                provider = providerData.filter(function(item, index, array) {
+                    return item.ukprn == ukprn;
                 });
+
+                if (provider.length > 0) provider = provider[0];
+                else provider = undefined;
             }
+
+            return provider;
         };
 
-        var createProvider = new function() {
+        var createProvider = function() {
             return {
                 ukprn: "",
                 name: "",
