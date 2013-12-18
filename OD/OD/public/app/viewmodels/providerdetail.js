@@ -1,8 +1,10 @@
 ﻿define(
-    ['plugins/router','durandal/system', 'services/logger', 'knockout', 'knockout.mapping', 'services/datacontext'],
-    function(router, system, logger, ko, komap, datacontext) {
+    ['plugins/router','durandal/system', 'services/logger', 'knockout', 'knockout.mapping', 'services/kodirty', 'services/datacontext'],
+    function(router, system, logger, ko, komap, kodirty, datacontext) {
     
         var provider = ko.observable();
+
+        var dirtyFlag = ko.observable(false);
 
         var activate = function (routeData) {
             log('[providerdetail] view activated', routeData, true);
@@ -14,7 +16,7 @@
                 // so, instead of this... provider = ko.mapping.formJS(prov);  you do this...
                 var obj = komap.fromJS(prov);
                 provider(obj);
-
+                dirtyFlag = kodirty.dirtyFlag(provider);
                 log('Provider loaded and [observable]', provider().ukprn(), true);
             }
         };
@@ -30,7 +32,8 @@
         {
             activate: activate,
             provider: provider,
-            save: save
+            save: save,
+            dirtyFlag: dirtyFlag
         };
 
         return vm;
@@ -40,6 +43,9 @@
         function log(msg, data, showToast) {
             logger.log(msg, data, system.getModuleId(vm), showToast);
         }
+
+
+
 
         //#endregion
 

@@ -31,6 +31,7 @@
   <ItemGroup>
     <Compile Include="public\app\main.js" />
     <Compile Include="public\app\services\datacontext.js" />
+    <Compile Include="public\app\services\kodirty.js" />
     <Compile Include="public\app\services\logger.js" />
     <Compile Include="public\app\services\providerdata.js" />
     <Compile Include="public\app\viewmodels\flickr.js" />

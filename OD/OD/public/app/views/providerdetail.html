@@ -2,6 +2,10 @@
 
     <h1>Provider details (<small data-bind="text: name"></small>)</h1>
 
+    <div data-bind="visible: $root.dirtyFlag.isDirty">
+        This is dirty!
+    </div>
+
     <form class="form-horizontal well" role="form">
         <div class="form-group">
             <label for="ukprn" class="col-sm-2 control-label">UKPRN</label>
