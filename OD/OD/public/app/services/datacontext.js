@@ -63,11 +63,16 @@
             providerData.forEach(function(item, i) { if (item.ukprn == provider.ukprn) providerData[i] = provider; });
         }
 
+        var deleteProvider = function(ukprn) {
+            providerData.forEach(function(item, i) { if (item.ukprn == ukprn) providerData.splice(i, 1); });
+        }
+
         var datacontext = {
             saveProvider: saveProvider,
             getProviderPartials: getProviderPartials,
             createProvider: createProvider,
-            getProviderByUkprn: getProviderByUkprn
+            getProviderByUkprn: getProviderByUkprn,
+            deleteProvider: deleteProvider
         };
 
         return datacontext;
