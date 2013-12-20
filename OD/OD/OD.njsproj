@@ -34,7 +34,6 @@
     <Compile Include="public\app\services\kodirty.js" />
     <Compile Include="public\app\services\logger.js" />
     <Compile Include="public\app\services\providerdata.js" />
-    <Compile Include="public\app\viewmodels\flickr.js" />
     <Compile Include="public\app\viewmodels\providerdetail.js" />
     <Compile Include="public\app\viewmodels\shell.js" />
     <Compile Include="public\app\viewmodels\welcome.js" />
@@ -501,7 +500,6 @@
     <Compile Include="server.js" />
     <Content Include="package.json" />
     <Content Include="public\app\views\detail.html" />
-    <Content Include="public\app\views\flickr.html" />
     <Content Include="public\app\views\shell.html" />
     <Content Include="public\app\views\providerdetail.html" />
     <Content Include="public\app\views\welcome.html" />

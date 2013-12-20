@@ -1,29 +1,41 @@
 ﻿define(
     ['knockout'],
     function(ko) {
-    var dirtyFlag = function(root, isInitiallyDirty) {
-        var that = this;
-        that._initialState = ko.observable(ko.toJSON(root));
-        that._isInitiallyDirty = ko.observable(isInitiallyDirty);
-        that.root = root;
-        that._datetime = new Date();
 
-        that.isDirty = ko.computed(function() {
-            var localDate = that._datetime;
-            return that._isInitiallyDirty() || that._initialState() !== ko.toJSON(that.root);
+    // This is effectively our "dirtyFlag" object with all the functionality.
+    var dirtyFlag = function(root, isInitiallyDirty) {
+        // Holds the state of the observale we are tracking (as a raw json string) at the 
+        // time we start tracking.  We compare this later to see if the current state of the 
+        // object has changed.
+        var _initialState = ko.observable(ko.toJSON(root));             
+        var _isInitiallyDirty = ko.observable(isInitiallyDirty);
+
+        // Main computed for UI binding.  Use as follows:
+        // data-bind="visible: dirtyFlag.isDirty"
+        var isDirty = ko.computed(function() {
+            return _isInitiallyDirty() || _initialState() !== ko.toJSON(root);
         });
 
-        that.reset = function() {
-            that._initialState(ko.toJSON(that.root));
-            that._isInitiallyDirty(false);
+        // Call this to reset tracking.  So we reset our initial state to the current
+        // state of the object we are tracking, which takes us back to "not dirty"
+        var reset = function() {
+            _initialState(ko.toJSON(root));
+            _isInitiallyDirty(false);
         };
+
+        var api = {
+            isDirty: isDirty,
+            reset: reset
+        };
+
+        return api;
     }
 
-    // Return our API to the outside world.
-    // Clients would use vm.myDirtyFlag = new koDirty(myObservableEntity);
-    // Note the use of "new"!
+    // This is our object we return via requirejs, which exposes the dirty functionality
+    // This could be added to to use different methods.
     var kodirty = {
         dirtyFlag: dirtyFlag
     };
+
     return kodirty;
 });

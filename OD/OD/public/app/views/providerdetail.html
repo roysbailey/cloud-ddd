@@ -2,10 +2,6 @@
 
     <h1>Provider details (<small data-bind="text: name"></small>)</h1>
 
-    <div data-bind="visible: $root.dirtyFlag.isDirty">
-        This is dirty!
-    </div>
-
     <form class="form-horizontal well" role="form">
         <div class="form-group">
             <label for="ukprn" class="col-sm-2 control-label">UKPRN</label>
@@ -66,21 +62,21 @@
                 <!--<button data-bind="click: $root.save" class="btn btn-default">Save</button>-->
                 <button class="btn btn-info"
                         data-bind="click: $root.goBack">
-                    <i class="icon-hand-left"></i> Back
+                    <i class="glyphicon glyphicon-chevron-left"></i> Back
                 </button>
                 <button class="btn btn-info"
                         data-bind="click: $root.cancel, enable: $root.dirtyFlag.isDirty">
-                    <i class="icon-undo"></i> Cancel
+                    <i class="glyphicon glyphicon-repeat"></i> Cancel
                 </button>
                 <button class="btn btn-info"
                         data-bind="click: $root.save, enable: $root.dirtyFlag.isDirty">
-                    <i class="icon-save"></i> Save
+                    <i class="glyphicon glyphicon-save"></i> Save
                 </button>
                 <button class="btn btn-danger"
                         data-bind="click: $root.deleteProvider, disable: $root.dirtyFlag.isDirty">
-                    <i class="icon-trash"></i> Delete
+                    <i class="glyphicon glyphicon-trash"></i> Delete
                 </button>
-                <i class="icon-asterisk" data-bind="visible: hasChanges"></i>
+                <i class="glyphicon glyphicon-asterisk" data-bind="visible: $root.dirtyFlag.isDirty"></i>
             </div>
         </div>
     </form>

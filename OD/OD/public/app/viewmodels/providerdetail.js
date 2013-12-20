@@ -52,7 +52,8 @@
             cancel: cancel,
             isDeleting: isDeleting,
             deleteProvider: deleteProvider,
-            save: save
+            save: save,
+            goBack: goBack
         } ;
 
         return vm;
