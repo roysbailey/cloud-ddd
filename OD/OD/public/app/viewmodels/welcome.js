@@ -1,4 +1,4 @@
-﻿define(
+define(
     ['plugins/router','durandal/system', 'services/logger', 'knockout', 'services/datacontext'],
     function(router, system, logger, ko, datacontext) {
 

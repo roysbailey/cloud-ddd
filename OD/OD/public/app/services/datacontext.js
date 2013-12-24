@@ -1,4 +1,4 @@
-﻿define([
+define([
     'durandal/system',
     'services/logger'
     ,'services/providerdata'
@@ -70,6 +70,13 @@
         var refreshDB = function() {
             var providersJSON = JSON.stringify(providerData);
 
+            // jQuery.post( "/api/refreshdb", providerData )
+            //     .done(function( data ) {
+            //         alert( "Data Loaded: " + data );
+            // });
+
+            log('Refresh providers started', null, true);
+
             jQuery.ajax({
                 type: 'POST',
                 url: "/api/refreshdb",
@@ -77,8 +84,11 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(data){ 
-                    alert(data); 
-                }
+                    log('Refresh of providers completed', data, true); 
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    logError("Refresh of providers failed", "Error back from save:" + errorThrown);
+                }                
             });
         }
 
@@ -95,26 +105,6 @@
 
         //#region Internal methods        
         
-        var viewAttached = function(view) {
-            bindEventToList(view, '.session-brief', gotoDetails);
-        };
-
-        var bindEventToList = function(rootSelector, selector, callback, eventName) {
-            var eName = eventName || 'click';
-            $(rootSelector).on(eName, selector, function() {
-                var provider = ko.dataFor(this);
-                callback(provider);
-                return false;
-            });
-        };
-
-        var gotoDetails = function(selectedProvider) {
-            if (selectedProvider && selectedProvider.id()) {
-                var url = '#/providerdetail/' + selectedProvider.ukprn();
-                router.navigateTo(url);
-            }
-        };
-
         function log(msg, data, showToast) {
             logger.log(msg, data, system.getModuleId(datacontext), showToast);
         };

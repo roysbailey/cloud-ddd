@@ -14,7 +14,8 @@ app.configure(function() {
     app.use(express.static(__dirname + '/public'));
 });
 
-var db =  monk('localhost:27017/OrgDir');
+var mongoUrl = process.env.IP + ':27017/OrgDir';
+var db =  monk(mongoUrl);
 
 //app.get('/test', function(req, res) {
 //  res.send('Thanks for calling test!');  
@@ -26,14 +27,14 @@ var db =  monk('localhost:27017/OrgDir');
 app.get('/test', function(req,res){
   db.driver.collectionNames(function(e,names){
     res.json(names);
-  })
+  });
 });
 
-app.get('/collections/:name', function(req,res){
+app.get('/collections/:name', function(req,res) {
   var collection = db.get(req.params.name);
-  collection.find({},{limit:20},function(e,docs){
+  collection.find({},{limit:20}, function(e,docs) {
     res.json(docs);
-  })
+  });
 });
 
 app.post('/test', function(req, res) {
@@ -44,7 +45,7 @@ app.post('/test', function(req, res) {
 
 app.post('/api/refreshdb', function(req, res) {
     // Get the list of providers from the body.
-    var newProviderList = req.body.providers;
+    var newProviderList = req.body;
 
     // Set our collection
     var collection = db.get('providers');
@@ -55,10 +56,16 @@ app.post('/api/refreshdb', function(req, res) {
         newProviderList,
         function (err, doc) {
         if (err) {
-            res.send('Failed to insert!');
-        }
-        else {
-            res.send('Data inserted into DB!');
+            var error = {
+                msg: "Failed to update providers",
+                error: err
+                };
+            res.json(error);
+        } else {
+            var success = {
+                msg: "Providers update ok"
+                };
+            res.json(success);
         }
     });
 });
@@ -67,4 +74,4 @@ app.post('/api/refreshdb', function(req, res) {
 
 
 // Start listenting on a port
-app.listen(1337);
+app.listen(process.env.PORT);
