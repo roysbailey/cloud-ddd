@@ -1,13 +1,15 @@
 {
-  "name": "NodejsApp1",
-  "version": "0.0.1",
-  "description": "NodejsApp1",
-  "main": "server.js",
-  "author": {
-    "name": "Roy",
-    "email": ""
-  },
-  "dependencies": {
-	"express": "x"
-}
+	"name": "OD",
+	"version": "0.0.1",
+	"description": "Organisation Directory Sample",
+	"main": "server.js",
+	"author": {
+		"name": "Roy",
+		"email": "roysbailey@silvertouch.co.uk"
+	},
+	"dependencies": {
+	  "mongodb":"x",
+	  "monk": "x",
+	  "express": "x"
+	}
 }

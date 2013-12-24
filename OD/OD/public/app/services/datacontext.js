@@ -67,12 +67,28 @@
             providerData.forEach(function(item, i) { if (item.ukprn == ukprn) providerData.splice(i, 1); });
         }
 
+        var refreshDB = function() {
+            var providersJSON = JSON.stringify(providerData);
+
+            jQuery.ajax({
+                type: 'POST',
+                url: "/api/refreshdb",
+                data: providersJSON,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data){ 
+                    alert(data); 
+                }
+            });
+        }
+
         var datacontext = {
             saveProvider: saveProvider,
             getProviderPartials: getProviderPartials,
             createProvider: createProvider,
             getProviderByUkprn: getProviderByUkprn,
-            deleteProvider: deleteProvider
+            deleteProvider: deleteProvider,
+            refreshDB: refreshDB
         };
 
         return datacontext;

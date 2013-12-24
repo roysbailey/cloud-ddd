@@ -29,6 +29,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="api\providercontext.js" />
     <Compile Include="public\app\main.js" />
     <Compile Include="public\app\services\datacontext.js" />
     <Compile Include="public\app\services\kodirty.js" />
@@ -1514,6 +1515,7 @@
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="api\" />
     <Folder Include="public\" />
     <Folder Include="public\app\" />
     <Folder Include="public\app\services\" />

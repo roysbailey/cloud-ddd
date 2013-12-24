@@ -19,6 +19,10 @@
 
         var providers = ko.observableArray([]);
 
+        var refreshDB = function() {
+            datacontext.refreshDB();
+        }
+
         var vm = 
         {
             activate: activate,
@@ -27,7 +31,8 @@
             displayName: "Organisation Directory",
             description: "Welcome to the Organisation Directory.  Please use the options below to select what you would like to do next",
             providers: providers,
-            searchText: ko.observable("")
+            searchText: ko.observable(""),
+            refreshDB: refreshDB
         };
 
         return vm;

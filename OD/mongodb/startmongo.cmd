@@ -1,0 +1,1 @@
+c:\mongodb\bin\mongod.exe --smallfiles --dbpath C:\data\git\cloud-ddd\OD\mongodb
