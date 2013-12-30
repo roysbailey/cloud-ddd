@@ -1,7 +1,7 @@
 // Get the items we need to wire up MongoDB
 var mongo = require('mongodb');
 var monk = require('monk');
-//var api = require('./api/providercontext.js');
+var api = require('./api/providercontext.js');
 
 // Wire up express to handle http requests
 var express = require('express');
@@ -41,34 +41,10 @@ app.post('/test', function(req, res) {
   var tmp = req.body;  
 });
 
-//app.post('/refreshdb', api.refreshdb(db));
+// Routes to API controller
+app.post('/api/refreshdb', api.refreshdb(db));
+app.get('/api/providers/:ukprn', api.getProviderByUKPRN(db));
 
-app.post('/api/refreshdb', function(req, res) {
-    // Get the list of providers from the body.
-    var newProviderList = req.body;
-
-    // Set our collection
-    var collection = db.get('providers');
-    collection.remove();
-
-    // Submit to the DB
-    collection.insert(
-        newProviderList,
-        function (err, doc) {
-        if (err) {
-            var error = {
-                msg: "Failed to update providers",
-                error: err
-                };
-            res.json(error);
-        } else {
-            var success = {
-                msg: "Providers update ok"
-                };
-            res.json(success);
-        }
-    });
-});
 
 //#endregion REST interface
 
