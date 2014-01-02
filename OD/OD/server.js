@@ -44,8 +44,8 @@ app.post('/test', function(req, res) {
 // Routes to API controller
 app.post('/api/refreshdb', api.refreshdb(db));
 app.get('/api/providers/:ukprn', api.getProviderByUKPRN(db));
-
-
+app.put('/api/providers/:ukprn', api.updateProvider(db));
+app.get('/api/providers', api.getProviders(db));
 //#endregion REST interface
 
 

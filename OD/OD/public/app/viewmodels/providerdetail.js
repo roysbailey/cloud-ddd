@@ -41,8 +41,11 @@
         var save = function() {
             // Convert our observable into a POJO and save
             var rawProvider = komap.toJS(provider);
-            datacontext.saveProvider(rawProvider);
-            router.navigate('#/');
+            datacontext.saveProvider(rawProvider)
+                .done(function( data ) {
+                    log('Navigate back to provider list', data, true); 
+                    router.navigate('#/');
+                });
         }
 
         var vm = {
@@ -61,26 +64,55 @@
         //#region Internal Methods
 
         function loadProvider(ukprn) {
-            var prov = datacontext.getProviderByUkprn(ukprn);
-            if (prov) {
-                // Note. as we have "required" ko mapping as a module, it is NOT put into the "ko" object as "ko.mapping"
-                // Instead, it is put into our "required" variable.
-                // Therefore, instead of ... provider = ko.mapping.formJS(prov);  you do ..
-                var obj = komap.fromJS(prov);
-                provider(obj);
-                // Note.  As the "provider" observable we are tracking has changed, we need 
-                // to reset the dirty flag (as the previous object we were tracking may be dirty, but not the new one!)
-                dirtyFlag.reset();
-                log('Provider loaded and [observable]', provider().ukprn(), true);
-            } else {
-                dirtyFlag = { isDirty: ko.observable(false) };
-            }
+            datacontext.getProviderByUkprn(ukprn)
+                .done(function( data ) {
+                    log('Loaded provider from Mongo', data, true); 
+                    var prov = data;
+                    if (prov) {
+                        // Note. as we have "required" ko mapping as a module, it is NOT put into the "ko" object as "ko.mapping"
+                        // Instead, it is put into our "required" variable.
+                        // Therefore, instead of ... provider = ko.mapping.formJS(prov);  you do ..
+                        var obj = komap.fromJS(prov);
+                        provider(obj);
+                        // Note.  As the "provider" observable we are tracking has changed, we need 
+                        // to reset the dirty flag (as the previous object we were tracking may be dirty, but not the new one!)
+                        dirtyFlag.reset();
+                        log('Provider loaded and [observable]', provider().ukprn(), true);
+                    } else {
+                        dirtyFlag = { isDirty: ko.observable(false) };
+                    }
+                  })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    logError("Load provider from Mongo failed", "Error back from load:" + errorThrown);
+                  });
         }
+
+        // function loadProvider(ukprn) {
+        //     var prov = datacontext.getProviderByUkprn(ukprn);
+        //     if (prov) {
+        //         // Note. as we have "required" ko mapping as a module, it is NOT put into the "ko" object as "ko.mapping"
+        //         // Instead, it is put into our "required" variable.
+        //         // Therefore, instead of ... provider = ko.mapping.formJS(prov);  you do ..
+        //         var obj = komap.fromJS(prov);
+        //         provider(obj);
+        //         // Note.  As the "provider" observable we are tracking has changed, we need 
+        //         // to reset the dirty flag (as the previous object we were tracking may be dirty, but not the new one!)
+        //         dirtyFlag.reset();
+        //         log('Provider loaded and [observable]', provider().ukprn(), true);
+        //     } else {
+        //         dirtyFlag = { isDirty: ko.observable(false) };
+        //     }
+        // }
+
 
         function log(msg, data, showToast) {
             logger.log(msg, data, system.getModuleId(vm), showToast);
         }
 
-        //#endregion
+
+    function logError(msg, error) {
+        logger.logError(msg, error, system.getModuleId(datacontext), true);
+    };
+           //#endregion
 
     });

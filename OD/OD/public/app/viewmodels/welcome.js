@@ -3,9 +3,14 @@ define(
     function(router, system, logger, ko, datacontext) {
 
         var activate = function () {
-            if (vm.searchText())
-                datacontext.getProviderPartials(providers, vm.searchText());
-            log('[Welcome] view activated', null, true);
+            if (vm.searchText()) {
+                var promise = datacontext.getProviderPartials(providers, vm.searchText())
+                    .always(function() {
+                        log('[Welcome] view activated', null, true);
+                    });
+                    
+                return promise;
+            }
         };
 
         var attached = function(view) {
