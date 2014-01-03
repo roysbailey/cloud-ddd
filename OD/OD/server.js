@@ -2,6 +2,7 @@
 var mongo = require('mongodb');
 var monk = require('monk');
 var api = require('./api/providercontext.js');
+var epub = require('./services/eventpublication.js')
 
 // Wire up express to handle http requests
 var express = require('express');
@@ -42,6 +43,8 @@ app.get('/api/providers/:ukprn', api.getProvider(db));
 app.put('/api/providers/:ukprn', api.updateProvider(db));
 app.del('/api/providers/:ukprn', api.deleteProvider(db));
 app.get('/api/providers', api.getProviders(db));
+
+app.post('/notification/providers/init', epub.initialiseEventSourcing(db));
 //#endregion REST interface
 
 // Start listenting on a port

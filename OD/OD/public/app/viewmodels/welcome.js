@@ -26,9 +26,13 @@ define(
 
         var refreshDB = function() {
             datacontext.refreshDB();
-        }
+        };
 
-        var vm = 
+        var initEventSource = function() {
+            datacontext.initEventSource();
+        };
+
+        var vm =
         {
             activate: activate,
             attached: attached,
@@ -37,7 +41,8 @@ define(
             description: "Welcome to the Organisation Directory.  Please use the options below to select what you would like to do next",
             providers: providers,
             searchText: ko.observable(""),
-            refreshDB: refreshDB
+            refreshDB: refreshDB,
+            initEventSource: initEventSource
         };
 
         return vm;

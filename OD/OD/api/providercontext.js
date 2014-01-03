@@ -1,4 +1,5 @@
 var httpStatus = require('http-status');
+var evSource = require('../services/eventpublication');
 
 exports.refreshdb = function(db) {
     return function(req, res) {
@@ -94,6 +95,7 @@ exports.updateProvider = function(db) {
                     };
                 res.json(error);
             } else {
+                evSource.publishEvent('update', doc);
                 res.json(doc);
             }
         });

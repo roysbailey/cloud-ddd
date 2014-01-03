@@ -34,8 +34,14 @@
             </tbody>
         </table>
     </div>
-</p>
-<button class="btn btn-danger"
-        data-bind="click: refreshDB">
-    <i class="glyphicon glyphicon-exclamation-sign"></i> Refresh DB
-</button>
+
+<div class="form-actions form-group">
+    <button class="btn btn-danger"
+            data-bind="click: refreshDB">
+        <i class="glyphicon glyphicon-exclamation-sign"></i> Refresh DB
+    </button>
+    <button class="btn btn-danger"
+            data-bind="click: initEventSource">
+        <i class="glyphicon glyphicon-exclamation-sign"></i> Init Event Source
+    </button>
+</div>

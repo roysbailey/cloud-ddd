@@ -91,7 +91,22 @@ define(['durandal/system', 'services/logger', 'services/providerdata'],
                 logError("Refresh of providers failed", "Error back from save:" + errorThrown);
             }                
         });
-    }
+    };
+
+    var initEventSource = function() {
+        log('Init event source started', null, true);
+        jQuery.ajax({
+            type: 'POST',
+            url: "/notification/providers/init",
+            data: {},
+            success: function(data){
+                log('Init event source completed', data, true);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                logError("Initialisation of event source failed", "Error back from init:" + errorThrown);
+            }
+        });
+    };
 
     var datacontext = {
         saveProvider: saveProvider,
@@ -99,7 +114,8 @@ define(['durandal/system', 'services/logger', 'services/providerdata'],
         createProvider: createProvider,
         getProviderByUkprn: getProviderByUkprn,
         deleteProvider: deleteProvider,
-        refreshDB: refreshDB
+        refreshDB: refreshDB,
+        initEventSource: initEventSource
     };
 
     return datacontext;

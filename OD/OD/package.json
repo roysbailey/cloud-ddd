@@ -11,6 +11,7 @@
 	  "mongodb":"x",
 	  "monk": "x",
 	  "express": "x",
-	  "http-status": "x"
+	  "http-status": "x",
+      "aws-sdk": "x"
 	}
 }
