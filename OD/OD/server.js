@@ -17,37 +17,31 @@ app.configure(function() {
 var mongoUrl = process.env.IP + ':27017/OrgDir';
 var db =  monk(mongoUrl);
 
-//app.get('/test', function(req, res) {
-//  res.send('Thanks for calling test!');  
-//});
 
+// app.get('/test', function(req,res){
+//   db.driver.collectionNames(function(e,names){
+//     res.json(names);
+//   });
+// });
+
+// app.get('/collections/:name', function(req,res) {
+//   var collection = db.get(req.params.name);
+//   collection.find({},{limit:20}, function(e,docs) {
+//     res.json(docs);
+//   });
+// });
+
+// app.post('/test', function(req, res) {
+//   var tmp = req.body;  
+// });
 
 //#region REST interface
-
-app.get('/test', function(req,res){
-  db.driver.collectionNames(function(e,names){
-    res.json(names);
-  });
-});
-
-app.get('/collections/:name', function(req,res) {
-  var collection = db.get(req.params.name);
-  collection.find({},{limit:20}, function(e,docs) {
-    res.json(docs);
-  });
-});
-
-app.post('/test', function(req, res) {
-  var tmp = req.body;  
-});
-
-// Routes to API controller
 app.post('/api/refreshdb', api.refreshdb(db));
-app.get('/api/providers/:ukprn', api.getProviderByUKPRN(db));
+app.get('/api/providers/:ukprn', api.getProvider(db));
 app.put('/api/providers/:ukprn', api.updateProvider(db));
+app.del('/api/providers/:ukprn', api.deleteProvider(db));
 app.get('/api/providers', api.getProviders(db));
 //#endregion REST interface
-
 
 // Start listenting on a port
 app.listen(process.env.PORT);

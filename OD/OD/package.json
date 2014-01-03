@@ -10,6 +10,7 @@
 	"dependencies": {
 	  "mongodb":"x",
 	  "monk": "x",
-	  "express": "x"
+	  "express": "x",
+	  "http-status": "x"
 	}
 }

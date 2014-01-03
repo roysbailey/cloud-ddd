@@ -1,4 +1,4 @@
-﻿define(
+define(
     ['durandal/app', 'plugins/router','durandal/system', 'services/logger', 'knockout', 'knockout.mapping', 'services/kodirty', 'services/datacontext'],
     function(app, router, system, logger, ko, komap, kodirty, datacontext) {
 
@@ -31,10 +31,13 @@
             
             function confirmDelete(selectedOption) {
                 if (selectedOption === 'Yes') {
-                    datacontext.deleteProvider(provider().ukprn());
-                    router.navigate('#/');
+                    datacontext.deleteProvider(provider().ukprn())
+                        .done(function( data ) {
+                            isDeleting(false);
+                            log('Navigate back to provider list', data, true); 
+                            router.navigate('#/');
+                        });
                 }
-                isDeleting(false);
             }
         };
 

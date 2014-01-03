@@ -59,7 +59,18 @@ define(['durandal/system', 'services/logger', 'services/providerdata'],
     }
 
     var deleteProvider = function(ukprn) {
-        providerData.forEach(function(item, i) { if (item.ukprn == ukprn) providerData.splice(i, 1); });
+        log('Delete provider started', ukprn, true);
+        
+        return jQuery.ajax({
+            type: 'DELETE',
+            url: "/api/providers/" + ukprn,
+            success: function(data){ 
+                log('Delete providers completed', data, true); 
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                logError("Delete provider failed", "Error back from delete:" + errorThrown);
+            }                
+        }); 
     }
 
     var refreshDB = function() {

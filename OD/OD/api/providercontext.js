@@ -27,11 +27,34 @@ exports.refreshdb = function(db) {
     };
 };
     
+    
+exports.deleteProvider = function(db) {
+    return function(req, res) {
+        var ukprnInt = parseInt(req.params.ukprn, 10);
+    
+        // Set our collection
+        var collection = db.get('providers');
+    
+        collection.remove(
+            { ukprn: ukprnInt }, 
+            function(err, numDocs) {
+            if (err) {
+                var error = {
+                    msg: "Failed to delete provider: [" + ukprnInt + "]",
+                    error: err
+                    };
+                res.json(error);
+            } else {
+                res.send(204);
+            }
+        });
+    };
+};    
 
-exports.getProviderByUKPRN = function(db) {
+exports.getProvider = function(db) {
     return function(req, res) {
         // Get the ukprn of the provider we need to load
-        var ukprnInt = parseInt(req.params.ukprn);
+        var ukprnInt = parseInt(req.params.ukprn, 10);
     
         // Set our collection
         var collection = db.get('providers');
