@@ -1,3 +1,5 @@
+var httpStatus = require('http-status');
+
 exports.refreshdb = function(db) {
     return function(req, res) {
         // Get the list of providers from the body.
@@ -11,18 +13,18 @@ exports.refreshdb = function(db) {
         collection.insert(
             newProviderList,
             function (err, doc) {
-            if (err) {
-                var error = {
-                    msg: "Failed to update providers",
-                    error: err
+                if (!err) {
+                    var success = {
+                        msg: "Providers updated ok"
                     };
-                res.json(error);
-            } else {
-                var success = {
-                    msg: "Providers updated ok"
+                    res.json(success);
+                } else {
+                    var error = {
+                        msg: "Failed to update providers",
+                        error: err
                     };
-                res.json(success);
-            }
+                    res.json(error);
+                }
         });
     };
 };
@@ -45,7 +47,7 @@ exports.deleteProvider = function(db) {
                     };
                 res.json(error);
             } else {
-                res.send(204);
+                res.send(httpStatus.NO_CONTENT);
             }
         });
     };

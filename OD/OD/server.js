@@ -14,7 +14,8 @@ app.configure(function() {
     app.use(express.static(__dirname + '/public'));
 });
 
-var mongoUrl = process.env.IP + ':27017/OrgDir';
+//var mongoUrl = process.env.IP + ':27017/OrgDir';
+var mongoUrl = 'localhost:27017/OrgDir';
 var db =  monk(mongoUrl);
 
 
@@ -44,4 +45,6 @@ app.get('/api/providers', api.getProviders(db));
 //#endregion REST interface
 
 // Start listenting on a port
-app.listen(process.env.PORT);
+//app.listen(process.env.PORT);
+
+app.listen(1337);
