@@ -8,10 +8,11 @@
 		"email": "roysbailey@silvertouch.co.uk"
 	},
 	"dependencies": {
-	  "mongodb":"x",
-	  "monk": "x",
-	  "express": "x",
-	  "http-status": "x",
-      "aws-sdk": "x"
+        "mongodb":"x",
+        "monk": "x",
+        "express": "x",
+        "http-status": "x",
+        "aws-sdk": "x",
+        "q": "x"
 	}
 }

@@ -95,7 +95,7 @@ exports.updateProvider = function(db) {
                     };
                 res.json(error);
             } else {
-                evSource.publishEvent('update', doc);
+                evSource.publishEvent(provider, 'update');
                 res.json(doc);
             }
         });
