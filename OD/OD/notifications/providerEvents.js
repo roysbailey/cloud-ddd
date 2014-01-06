@@ -39,17 +39,33 @@ exports.getRecentNotificationFeed = function(req, res) {
                     // Now, we need to modify the relationship exposed to reflect this is the "recent" feeds they are looking at.
                     // See "REST in Practice" page: 194 / 212
                     eventFeedObj._links.via = {href: eventFeedObj._links.self.href};
-                    eventFeedObj._links.self.href = '/provider/notifications';
+                    eventFeedObj._links.self.href = '/providers/notifications';
 
-                    // Convert to a Json string to send back to the client.
-                    var eventFeedJson = JSON.stringify(eventFeedObj);
-                    res.json(eventFeedJson);
+                    res.json(eventFeedObj);
                 }
             });
         }
     });
 }
 
-exports.getNotificationFeed = function(req, resp) {
-
+exports.getNotificationFeed = function(req, res) {
+    var feedID = parseInt(req.params.feedID, 10);
+    var eventFeedKey = esConfigConstants.EVENT_FEED_KEY_NAME_PREFIX + feedID;
+    var s3 = new AWS.S3();
+    s3.getObject(
+        {Bucket: esConfigConstants.EVENT_BUCKET_NAME,
+            Key: eventFeedKey,
+            ResponseContentType: esConfigConstants.RESPONSE_CONTENT_TYPE},
+        function(err, data) {
+            if (!err) {
+                console.log('Loaded the feed: ' + eventFeedKey);
+                var eventFeedJsonBody = data.Body.toString();
+                var eventFeedObj = JSON.parse(eventFeedJsonBody);
+                res.json(eventFeedObj);
+            } else if (err.code === esConfigConstants.ERROR_NO_SUCH_KEY) {
+                res.send(httpStatus.NOT_FOUND);
+            } else {
+                res.send(httpStatus.BAD_REQUEST);
+            }
+        });
 }
