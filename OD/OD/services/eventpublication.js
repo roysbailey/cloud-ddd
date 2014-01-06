@@ -32,13 +32,7 @@ exports.publishEvent = function(provider, eventType) {
     var s3;
     s3 = new AWS.S3();
 
-    var options = {
-        Bucket: esConfigConstants.EVENT_BUCKET_NAME,
-        Key: esConfigConstants.EVENT_CONFIG_KEY_NAME,
-        ResponseContentType: esConfigConstants.RESPONSE_CONTENT_TYPE
-    };
-
-    s3.getObject(options, function(err, data) {
+    s3.getObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, ResponseContentType: esConfigConstants.RESPONSE_CONTENT_TYPE}, function(err, data) {
         var currentEventFeed;
         if (!err) {
             var jsonBody = data.Body.toString();
@@ -58,8 +52,12 @@ exports.publishEvent = function(provider, eventType) {
                         // Current feed is full, lets increment the current feed number and save back to config.
                         conf.currentEventFeed++;
                         var strConfig = JSON.stringify(conf);
-                        s3.putObject({Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, Body: strConfig}, function() {
-                            console.log("Successfully updated config for Org Dir Event Sourcing notifications");
+                        s3.putObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, Body: strConfig}, function(err, data) {
+                            if (!err) {
+                                console.log("Successfully updated config for Org Dir Event Sourcing notifications");
+                            } else {
+                                console.log("Failed to update config for Org Dir Event Sourcing notifications: " + err);
+                            }
                         });
 
                         // Add the "next-archive" _link to the feed we are just closing, to point to the new one we are opening and save it
@@ -102,28 +100,6 @@ exports.publishEvent = function(provider, eventType) {
             });
         }
     });
-
-//    var p_getObject = Q.denodeify(s3.getObject);
-//    p_getObject(options)
-//        .then(
-//        function(data) {
-//            var currentEventFeed;
-//            if (!err) {
-//                var jsonBody = data.Body.toString();
-//                var conf = JSON.parse(jsonBody);
-//                currentEventFeed = conf.currentEventFeed;
-//                console.log("Current event feed:" + currentEventFeed);
-//            }
-//        })
-//        .fail(
-//        function (reason) {
-//            console.log(reason);
-//        })
-//        .done(
-//        function() {
-//            console.log("Done");
-//        }
-//        );
 };
 
 function createNewFeedObject(currentEventFeed) {
@@ -149,17 +125,16 @@ function createNewFeedObject(currentEventFeed) {
 }
 
 function addNewFeedEntry(feed, provider, eventType) {
-    // Create a new HAL feed to represent the events on providers
-
     var dt = new DateTime();
-    var id = provider.ukprn + '_' + dt.formats['constants']['atom'];
+    var ukprn = eventType === 'delete' ? provider : provider.ukprn;
+    var id = ukprn + '_' + dt.formats['constants']['atom'];
 
     var entry = {
         id: id,
         title: 'Provider [' + eventType + ']',
         createdDate: dt.formats['compound']['mySQL'],
         _links: {
-            via: { href: '/api/providers/' + provider.ukprn }
+            related: { href: '/api/providers/' + ukprn }
         },
         category: [
             { scheme: 'type', term: 'Provider' },
@@ -167,19 +142,23 @@ function addNewFeedEntry(feed, provider, eventType) {
         ],
         content: {
             type: 'application/vnd.orgdir+json',
-            ukprn: provider.ukprn,
-            name: provider.name,
-            alias: provider.alias,
-            flatName: provider.flatName,
-            buildingName: provider.buildingName,
-            locality: provider.locality,
-            street: provider.street,
-            city: provider.city,
-            postCode: provider.postCode,
-            website: provider.website,
-            contactpostCode: provider.contactpostCode
+            ukprn: ukprn
         }
     };
+    
+    if (eventType === 'update') {
+        // For update, we need to add the current attribute values of the "provider" (not so for delete)
+        entry.content.name = provider.name;
+        entry.content.alias = provider.alias;
+        entry.content.flatName = provider.flatName;
+        entry.content.buildingName = provider.buildingName;
+        entry.content.locality = provider.locality;
+        entry.content.street = provider.street;
+        entry.content.city = provider.city;
+        entry.content.postCode = provider.postCode;
+        entry.content.website = provider.website;
+        entry.content.contactpostCode = provider.contactpostCode;
+    }
 
     // Add the new entry to the feed and update our feeds 'updated' date.
     feed.entries.push(entry);

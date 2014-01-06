@@ -48,6 +48,7 @@ exports.deleteProvider = function(db) {
                     };
                 res.json(error);
             } else {
+                evSource.publishEvent(ukprnInt, 'delete');
                 res.send(httpStatus.NO_CONTENT);
             }
         });

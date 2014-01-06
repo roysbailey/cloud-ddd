@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26d3f555-1866-4e11-9748-4051d164c0e1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/OD/OD/services/DateTime.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/mongodb/mongod.lock" afterPath="$PROJECT_DIR$/OD/mongodb/mongod.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/services/esconfig.js" afterPath="$PROJECT_DIR$/OD/OD/services/esconfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/services/eventpublication.js" afterPath="$PROJECT_DIR$/OD/OD/services/eventpublication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/package.json" afterPath="$PROJECT_DIR$/OD/OD/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/api/providercontext.js" afterPath="$PROJECT_DIR$/OD/OD/api/providercontext.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/server.js" afterPath="$PROJECT_DIR$/OD/OD/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cloud-ddd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +33,21 @@
       <file leaf-file-name="eventpublication.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OD/OD/services/eventpublication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="0" selection-start="6257" selection-end="6257" vertical-scroll-proportion="0.55465585" vertical-offset="2669" max-vertical-offset="4268">
-              <folding />
+            <state line="34" column="110" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.6568182" vertical-offset="0" max-vertical-offset="2652">
+              <folding>
+                <element signature="e#345#1049#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="providerEvents.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="1" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="1003">
+              <folding>
+                <element signature="e#0#42#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,7 +64,7 @@
       <file leaf-file-name="providercontext.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="20" selection-start="2747" selection-end="2747" vertical-scroll-proportion="0.0" vertical-offset="1729" max-vertical-offset="3146">
+            <state line="1" column="0" selection-start="0" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2448">
               <folding />
             </state>
           </provider>
@@ -60,7 +73,7 @@
       <file leaf-file-name="providerdata.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/public/app/services/providerdata.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="1" selection-start="66" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="37145">
+            <state line="6" column="1" selection-start="66" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="37145">
               <folding />
             </state>
           </provider>
@@ -69,7 +82,7 @@
       <file leaf-file-name="DateTime.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/services/DateTime.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
+            <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="3111">
               <folding />
             </state>
           </provider>
@@ -96,7 +109,7 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="9" selection-start="1305" selection-end="1319" vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="1003">
+            <state line="46" column="0" selection-start="1462" selection-end="1462" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1037">
               <folding />
             </state>
           </provider>
@@ -105,16 +118,7 @@
       <file leaf-file-name="esconfig.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/services/esconfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="2" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="q.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/q/q.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1818" column="0" selection-start="54983" selection-end="54983" vertical-scroll-proportion="-5.269231" vertical-offset="30769" max-vertical-offset="33031">
+            <state line="14" column="2" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -135,9 +139,11 @@
       <list>
         <option value="$PROJECT_DIR$/OD/OD/package.json" />
         <option value="/node.js" />
-        <option value="$PROJECT_DIR$/OD/OD/api/providercontext.js" />
         <option value="$PROJECT_DIR$/OD/OD/services/DateTime.js" />
         <option value="$PROJECT_DIR$/OD/OD/services/esconfig.js" />
+        <option value="$PROJECT_DIR$/OD/OD/api/providercontext.js" />
+        <option value="$PROJECT_DIR$/OD/OD/server.js" />
+        <option value="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" />
         <option value="$PROJECT_DIR$/OD/OD/services/eventpublication.js" />
       </list>
     </option>
@@ -145,8 +151,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -174,6 +180,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,9 +253,52 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud-ddd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud-ddd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="notifications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud-ddd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloud-ddd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,13 +307,21 @@
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/OD/OD/node_modules/aws-sdk" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="SearchEverywhereHistory" value="providerda&#10;server&#10;font" />
+    <property name="SearchEverywhereHistory" value="server&#10;providerda&#10;font" />
     <property name="options.lastSelected" value="editor" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Node.js.cloud-ddd">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -274,23 +332,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -303,7 +353,9 @@
     <configuration default="false" name="cloud-ddd" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/OD/OD">
       <browser start="true" name="Chrome" url="http://localhost:1337" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.debug" />
+      <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
+      <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
     <list size="1">
@@ -337,22 +389,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30535895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35507247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13533439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19254659" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13531598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23664123" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35507247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -377,79 +429,84 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
-          <line>51</line>
-          <option name="timeStamp" value="29" />
+          <line>46</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
-          <line>94</line>
-          <option name="timeStamp" value="31" />
+          <line>52</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
-          <line>61</line>
-          <option name="timeStamp" value="32" />
+          <line>63</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
-          <line>65</line>
-          <option name="timeStamp" value="33" />
+          <line>128</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
-          <line>70</line>
-          <option name="timeStamp" value="34" />
+          <line>148</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/OD/OD/services/eventpublication.js</url>
+          <line>89</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js</url>
+          <line>44</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="48" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/OD/OD/package.json">
+    <entry file="file://$PROJECT_DIR$/OD/OD/services/eventpublication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="408">
+        <state line="49" column="0" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="935">
+          <folding>
+            <element signature="e#345#1049#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="0" selection-start="10916" selection-end="10916" vertical-scroll-proportion="0.0" vertical-offset="6328" max-vertical-offset="7905">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/services/s3.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="47" selection-start="10594" selection-end="10594" vertical-scroll-proportion="0.7259787" vertical-offset="6912" max-vertical-offset="9192">
+        <state line="96" column="20" selection-start="2747" selection-end="2747" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="2431">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/aws.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/public/app/services/providerdata.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="963">
+        <state line="6" column="1" selection-start="66" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="37145">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/collection.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/services/DateTime.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="14" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.57482994" vertical-offset="2807" max-vertical-offset="9044">
+        <state line="5" column="0" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="3111">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/monk.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="963">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/promise.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/q/q.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1818" column="0" selection-start="54983" selection-end="54983" vertical-scroll-proportion="-5.269231" vertical-offset="30769" max-vertical-offset="33031">
+        <state line="263" column="0" selection-start="9515" selection-end="9515" vertical-scroll-proportion="0.0" vertical-offset="4220" max-vertical-offset="13022">
           <folding />
         </state>
       </provider>
@@ -468,16 +525,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/public/app/services/providerdata.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/services/esconfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="1" selection-start="66" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="37145">
+        <state line="6" column="2" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
+    <entry file="file://$PROJECT_DIR$/OD/OD/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="20" selection-start="2747" selection-end="2747" vertical-scroll-proportion="0.0" vertical-offset="1729" max-vertical-offset="3146">
+        <state line="18" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/services/s3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="305" column="47" selection-start="10594" selection-end="10594" vertical-scroll-proportion="0.7259787" vertical-offset="6912" max-vertical-offset="9192" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/aws.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="963" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="14" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.57482994" vertical-offset="2807" max-vertical-offset="9044" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/monk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="963" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/monk/lib/promise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/sequential_executor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="0" selection-start="3168" selection-end="3168" vertical-scroll-proportion="0.0" vertical-offset="1781" max-vertical-offset="4505">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/public/app/services/providerdata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="1" selection-start="66" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="37145">
           <folding />
         </state>
       </provider>
@@ -510,10 +604,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="0" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1462" selection-end="1462" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="1003">
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OD/OD/services/eventpublication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="0" selection-start="6257" selection-end="6257" vertical-scroll-proportion="0.55465585" vertical-offset="2669" max-vertical-offset="4268">
-          <folding />
+        <state line="34" column="110" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.6568182" vertical-offset="0" max-vertical-offset="2652">
+          <folding>
+            <element signature="e#345#1049#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
