@@ -74,9 +74,20 @@ exports.getProvider = function(db) {
                     };
                 res.json(error);
             } else {
-                res.json(docs);
+                var providerETag = makeETag(docs);
+                if (req.headers['if-none-match'] === providerETag){
+                    res.send(httpStatus.NOT_MODIFIED);
+                } else {
+                    res.setHeader('ETag', providerETag);
+                    res.json(docs);
+                }
             }
         });
+
+        function makeETag(provider) {
+            var etag = provider.ukprn + '_' + provider.version;
+            return etag;
+        }
     };
 };
 
@@ -134,6 +145,7 @@ exports.getProviders = function(db) {
                 res.json(docs);
             }
         });
+
     };
 };
 

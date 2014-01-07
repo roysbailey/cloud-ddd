@@ -83,11 +83,15 @@ exports.getNotificationFeed = function(req, res) {
                 console.log('Loaded the feed: ' + eventFeedKey);
                 var eventFeedJsonBody = data.Body.toString();
                 var eventFeedObj = JSON.parse(eventFeedJsonBody);
+                res.setHeader('Cache-Control', 'public, max-age=120');
+//                res.setHeader('Expires', 'Tue, 07 Jan 2014 20:00:00 GMT');
                 res.json(eventFeedObj);
             } else if (err.code === esConfigConstants.ERROR_NO_SUCH_KEY) {
-                res.send(httpStatus.NOT_FOUND);
+                res.status(httpStatus.NOT_FOUND)
+                    .send('Could not find an event source feed with the ID: ' + feedID);
             } else {
-                res.send(httpStatus.BAD_REQUEST);
+                res.status(httpStatus.BAD_REQUEST)
+                    .send('An error occurred finding an event source feed with the ID: ' + feedID + ' Error: ' + err);
             }
         });
 }

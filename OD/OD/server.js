@@ -13,6 +13,7 @@ app.configure(function() {
     // Direct request for static types to the /public folder
     // Note: localhost/scripts/_references.js would mao to /public/scripts/_references.js in the project
     app.use(express.static(__dirname + '/public'));
+    app.disable('etag');
 });
 
 //var mongoUrl = process.env.IP + ':27017/OrgDir';
