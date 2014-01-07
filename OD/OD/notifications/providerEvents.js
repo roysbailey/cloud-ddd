@@ -5,7 +5,29 @@
 var AWS = require('aws-sdk');
 var esConfigConstants = require('../services/esconfig').esConfigConstatnts;
 var httpStatus = require('http-status');
+var esConfig = require('../services/esconfig').esConfig;
 
+exports.initialiseEventSourcing = function(req, res) {
+    var s3 = new AWS.S3({params: {Bucket: esConfigConstants.EVENT_BUCKET_NAME}});
+    s3.createBucket(function(err, data) {
+        if (!err) {
+            var strConfig = JSON.stringify(esConfig);
+            s3.putObject({Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, Body: strConfig}, function(err, data) {
+                if (!err) {
+                    console.log("Successfully initialised AWS event source");
+                    res.setHeader('Location', '/providers/notifications');
+                    res.send(httpStatus.CREATED);
+                } else {
+                    res.status(httpStatus.INTERNAL_SERVER_ERROR)
+                        .send("Failed to initialise event sourcing" + err);
+                }
+            });
+        } else {
+            res.status(httpStatus.INTERNAL_SERVER_ERROR)
+                .send("Failed to initialise event sourcing" + err);
+        }
+    });
+};
 
 exports.getRecentNotificationFeed = function(req, res) {
     var s3;

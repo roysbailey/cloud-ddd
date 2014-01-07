@@ -5,58 +5,39 @@
 var AWS = require('aws-sdk');
 var esConfig = require('./esconfig').esConfig;
 var esConfigConstants = require('./esconfig').esConfigConstatnts;
-var httpStatus = require('http-status');
-var Q = require('Q');
 var DateTime = require('./DateTime').DateTime;
 
-exports.initialiseEventSourcing = function(db) {
-    return function(req, res) {
-        var s3;
-        s3 = new AWS.S3({params: {Bucket: esConfigConstants.EVENT_BUCKET_NAME}});
-        s3.createBucket(function(err, data) {
-            if (!err) {
-                var strConfig = JSON.stringify(esConfig);
-                s3.putObject({Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, Body: strConfig}, function() {
-                    console.log("Successfully initialised AWS event source");
-                    res.send(httpStatus.CREATED);
-                    res.setHeader('Location', '/notification/providers');
-                });
-            } else {
-                res.send(httpStatus.INTERNAL_SERVER_ERROR);
-            }
-        });
-    };
-};
-
 exports.publishEvent = function(provider, eventType) {
-    var s3;
-    s3 = new AWS.S3();
+    var ukprn = eventType === 'delete' ? provider : provider.ukprn;
+    console.log('[ES].[publishEvent] - Create a [' + eventType + '] event for provider: ' + ukprn);
 
+    // Load config to see what the current event feed ID is.
+    var s3 = new AWS.S3();
     s3.getObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, ResponseContentType: esConfigConstants.RESPONSE_CONTENT_TYPE}, function(err, data) {
         var currentEventFeed;
         if (!err) {
             var jsonBody = data.Body.toString();
             var conf = JSON.parse(jsonBody);
             currentEventFeed = conf.currentEventFeed;
-            console.log("Current event feed:" + currentEventFeed);
+            console.log("[ES].[publishEvent] - Current event feed ID from config: " + currentEventFeed);
 
             // Lets see if the feed already exists
             var eventFeedKey = esConfigConstants.EVENT_FEED_KEY_NAME_PREFIX + currentEventFeed;
             s3.getObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: eventFeedKey, ResponseContentType: esConfigConstants.RESPONSE_CONTENT_TYPE}, function(err, data) {
                 var eventFeedObj;
                 if (!err) {
-                    console.log('Loaded the existing feed.');
+                    console.log('[ES].[publishEvent] - Loaded existing feed: ' + currentEventFeed);
                     var eventFeedJsonBody = data.Body.toString();
                     eventFeedObj = JSON.parse(eventFeedJsonBody);
                     if (eventFeedObj.entries.length >= esConfig.eventsPerFeed) {
-                        // Current feed is full, lets increment the current feed number and save back to config.
+                        console.log("[ES].[publishEvent] - Current feed: [" + currentEventFeed + '] is full, need new feed, so increment current Feed ID');
                         conf.currentEventFeed++;
                         var strConfig = JSON.stringify(conf);
                         s3.putObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: esConfigConstants.EVENT_CONFIG_KEY_NAME, Body: strConfig}, function(err, data) {
                             if (!err) {
-                                console.log("Successfully updated config for Org Dir Event Sourcing notifications");
+                                console.log("[ES].[publishEvent] - Successfully updated config with new [current] feed ID: " + conf.currentEventFeed);
                             } else {
-                                console.log("Failed to update config for Org Dir Event Sourcing notifications: " + err);
+                                console.log("[ES].[publishEvent] - Failed to update config with new [current] feed ID: " + conf.currentEventFeed + ' - Error: ' + err);
                             }
                         });
 
@@ -65,13 +46,18 @@ exports.publishEvent = function(provider, eventType) {
                             href: '/notification/providers/' + conf.currentEventFeed
                         };
                         var closedEventFeed = JSON.stringify(eventFeedObj);
-                        s3.putObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: eventFeedKey, Body: closedEventFeed}, function(err, data) {
-                            if (!err) {
-                                console.log("Successfully updated [full] previous event feed: " + eventFeedKey);
-                            } else {
-                                console.log("Failed to updated [full] previous event feed: " + err);
-                            }
-                        });
+                        (function(key) {
+//                          Due to the callback used below, we need to use a closure to capture the current value of eventFeedKey, so it is not modified in
+//                          the async callback scope, when it is modified below.
+//                          See http://stackoverflow.com/questions/19043145/mongodb-and-node-js-asynchronous-programming
+                            s3.putObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: key, Body: closedEventFeed}, function(err, data) {
+                                if (!err) {
+                                    console.log("[ES].[publishEvent] - Successfully updated full feed: " + key + ' to point next-archive to: ' + conf.currentEventFeed);
+                                } else {
+                                    console.log("[ES].[publishEvent] - Failed to update full feed: " + key + ' to point next-archive to: ' + conf.currentEventFeed + ' Error: ' + err);
+                                }
+                            });
+                        })(eventFeedKey);
 
                         // Now, lets create a new feed object for the current event, and allocate a new ket for it
                         currentEventFeed = conf.currentEventFeed;
@@ -79,7 +65,7 @@ exports.publishEvent = function(provider, eventType) {
                         eventFeedObj = createNewFeedObject(currentEventFeed);
                     }
                 } else if (err.code === esConfigConstants.ERROR_NO_SUCH_KEY) {
-                    console.log('Feed for current key not found (should only happen for first feed), lets create a new one');
+                    console.log("[ES].[publishEvent] - Feed for current key not found (should only happen for first feed), lets create a new one: " + eventFeedKey);
                     eventFeedObj = createNewFeedObject(currentEventFeed);
                 } else {
                     console.log(err);
@@ -91,9 +77,9 @@ exports.publishEvent = function(provider, eventType) {
                     var strNewEventFeed = JSON.stringify(eventFeedObj);
                     s3.putObject({Bucket: esConfigConstants.EVENT_BUCKET_NAME, Key: eventFeedKey, Body: strNewEventFeed}, function(err, data) {
                         if (!err) {
-                            console.log("Successfully stored new event feed: " + eventFeedKey);
+                            console.log("[ES].[publishEvent] - Successfully added new event for provider: " + ukprn + ' to event feed: ' + eventFeedKey);
                         } else {
-                            console.log("Failed to add new event feed: " + err);
+                            console.log("[ES].[publishEvent] - Failed to add new event for provider: " + ukprn + ' to event feed: ' + eventFeedKey + ' Error: ' + err);
                         }
                     });
                 }
@@ -110,14 +96,14 @@ function createNewFeedObject(currentEventFeed) {
         author: 'Organisation Directory',
         updated: '',
         _links: {
-            self: { href: '/notification/providers/' + currentEventFeed }
+            self: { href: '/providers/notifications/' + currentEventFeed }
         },
         entries: []
     };
 
     if (currentEventFeed > 1){
         halEventFeed._links.previousArchive = {
-          href: '/notification/providers/' + (currentEventFeed-1)
+          href: '/providers/notifications/' + (currentEventFeed-1)
         };
     }
 
@@ -158,6 +144,7 @@ function addNewFeedEntry(feed, provider, eventType) {
         entry.content.postCode = provider.postCode;
         entry.content.website = provider.website;
         entry.content.contactpostCode = provider.contactpostCode;
+        entry.content.version = provider.version;
     }
 
     // Add the new entry to the feed and update our feeds 'updated' date.

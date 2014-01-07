@@ -3,14 +3,16 @@ var evSource = require('../services/eventpublication');
 
 exports.refreshdb = function(db) {
     return function(req, res) {
-        // Get the list of providers from the body.
-        var newProviderList = req.body;
-    
-        // Set our collection
+        // Blank the current collection
         var collection = db.get('providers');
         collection.remove();
-    
-        // Submit to the DB
+
+        // Add version to each provider, so we can do ETag type stuff going forward
+        var newProviderList = req.body;
+        newProviderList.forEach(function(provider) {
+           provider.version = 1;
+        });
+
         collection.insert(
             newProviderList,
             function (err, doc) {
@@ -29,8 +31,7 @@ exports.refreshdb = function(db) {
         });
     };
 };
-    
-    
+
 exports.deleteProvider = function(db) {
     return function(req, res) {
         var ukprnInt = parseInt(req.params.ukprn, 10);
@@ -81,10 +82,12 @@ exports.getProvider = function(db) {
 
 exports.updateProvider = function(db) {
     return function(req, res) {
+        // Increment the version number of the provider being updated.
         var provider = req.body;
+        provider.version++;
 
+        // Update the provider in Mongo.
         var collection = db.get('providers');
-    
         collection.update(
             { _id: provider._id }, 
             provider,

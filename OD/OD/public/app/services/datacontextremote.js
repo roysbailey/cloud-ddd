@@ -97,7 +97,7 @@ define(['durandal/system', 'services/logger', 'services/providerdata'],
         log('Init event source started', null, true);
         jQuery.ajax({
             type: 'POST',
-            url: "/notification/providers/init",
+            url: "/providers/notifications/init",
             data: {},
             success: function(data){
                 log('Init event source completed', data, true);
