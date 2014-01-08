@@ -78,6 +78,7 @@ exports.getProvider = function(db) {
                 if (req.headers['if-none-match'] === providerETag){
                     res.send(httpStatus.NOT_MODIFIED);
                 } else {
+                    res.setHeader('Cache-Control', 'public, max-age=30');
                     res.setHeader('ETag', providerETag);
                     res.json(docs);
                 }
