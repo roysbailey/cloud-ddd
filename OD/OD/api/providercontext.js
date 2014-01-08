@@ -1,5 +1,6 @@
 var httpStatus = require('http-status');
 var evSource = require('../services/eventpublication');
+var cacheConfig = require('../services/cacheConfig').cacheConfig;
 
 exports.refreshdb = function(db) {
     return function(req, res) {
@@ -60,7 +61,8 @@ exports.getProvider = function(db) {
     return function(req, res) {
         // Get the ukprn of the provider we need to load
         var ukprnInt = parseInt(req.params.ukprn, 10);
-    
+        console.log('[API].[getProvider] - Try and load provier with ukprn: ' + ukprnInt);
+
         // Set our collection
         var collection = db.get('providers');
     
@@ -68,6 +70,7 @@ exports.getProvider = function(db) {
             { ukprn: ukprnInt }, 
             function(err, docs) {
             if (err) {
+                console.log('[API].[getProvider] - Failed to load provider with ukprn: ' + ukprnInt + ' Error: ' + err);
                 var error = {
                     msg: "Failed to load provider: [" + ukprnInt + "]",
                     error: err
@@ -75,10 +78,13 @@ exports.getProvider = function(db) {
                 res.json(error);
             } else {
                 var providerETag = makeETag(docs);
+                console.log('[API].[getProvider] - Loaded Provider: ' + ukprnInt + ' current ETag: ' + providerETag + ' ETag from if-none-match request: ' + req.headers['if-none-match']);
                 if (req.headers['if-none-match'] === providerETag){
+                    console.log('[API].[getProvider] - Provider: ' + ukprnInt + ' has NOT not, returning 304 - NOT_MODIFIED (and no http response body)');
                     res.send(httpStatus.NOT_MODIFIED);
                 } else {
-                    res.setHeader('Cache-Control', 'public, max-age=30');
+                    console.log('[API].[getProvider] - Provider: ' + ukprnInt + ' HAS changed, returning 200, with response headers: cache-control: ' + cacheConfig.readProvider_CacheControl  + ' and ETag: ' + providerETag);
+                    res.setHeader('Cache-Control', cacheConfig.readProvider_CacheControl);
                     res.setHeader('ETag', providerETag);
                     res.json(docs);
                 }
