@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="26d3f555-1866-4e11-9748-4051d164c0e1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/mongodb/mongod.lock" afterPath="$PROJECT_DIR$/OD/mongodb/mongod.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" afterPath="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cloud-ddd.iws" />
@@ -35,10 +36,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="providerEvents.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="providerEvents.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="30" selection-start="5131" selection-end="5131" vertical-scroll-proportion="0.0" vertical-offset="1163" max-vertical-offset="2125">
+            <state line="146" column="99" selection-start="6615" selection-end="6615" vertical-scroll-proportion="0.54611653" vertical-offset="1016" max-vertical-offset="1428">
+              <folding>
+                <element signature="e#368#1844#0" expanded="false" />
+                <element signature="e#3058#3562#0" expanded="false" />
+                <element signature="n#!!block;n#loadFeed#0" expanded="false" />
+                <element signature="n#!!block;n#loadCurrentConfig#0;n#!!block;n#loadRecentFeed#0" expanded="false" />
+                <element signature="n#!!block;n#makeETag#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="esconfig.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OD/OD/services/esconfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="20" selection-start="68" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="497" column="0" selection-start="15725" selection-end="15725" vertical-scroll-proportion="0.0" vertical-offset="8324" max-vertical-offset="9282">
               <folding />
             </state>
           </provider>
@@ -71,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cacheConfig.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="cacheConfig.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OD/OD/services/cacheConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.23460722" vertical-offset="0" max-vertical-offset="942">
+            <state line="13" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
               <folding />
             </state>
           </provider>
@@ -84,24 +109,6 @@
         <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/event_listeners.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="139" column="0" selection-start="5511" selection-end="5511" vertical-scroll-proportion="0.0" vertical-offset="2232" max-vertical-offset="6443">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OD/OD/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="40" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="765">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="providercontext.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="151" selection-start="3049" selection-end="3049" vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="2822">
               <folding />
             </state>
           </provider>
@@ -127,18 +134,18 @@
         <option value="$PROJECT_DIR$/OD/OD/public/app/services/datacontextremote.js" />
         <option value="$PROJECT_DIR$/OD/OD/services/eventpublication.js" />
         <option value="$PROJECT_DIR$/OD/OD/server.js" />
-        <option value="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" />
         <option value="$PROJECT_DIR$/OD/OD/public/app/views/welcome.html" />
-        <option value="$PROJECT_DIR$/OD/OD/services/cacheConfig.js" />
         <option value="$PROJECT_DIR$/OD/OD/api/providercontext.js" />
+        <option value="$PROJECT_DIR$/OD/OD/services/cacheConfig.js" />
+        <option value="$PROJECT_DIR$/OD/OD/notifications/providerEvents.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -166,7 +173,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,6 +291,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,7 +306,20 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\data\git\cloud-ddd\OD\OD\notifications" />
+    </key>
+  </component>
   <component name="RunManager" selected="Node.js.cloud-ddd">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -310,23 +330,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -395,26 +407,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30535895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.304414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13059504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35844156" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17546469" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31354642" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35312024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35312024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -435,24 +447,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="81" />
+      <option name="time" value="89" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/OD/OD/services/eventpublication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="35" selection-start="6925" selection-end="6925" vertical-scroll-proportion="0.0" vertical-offset="2567" max-vertical-offset="2941">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="41" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="387" column="0" selection-start="10916" selection-end="10916" vertical-scroll-proportion="0.0" vertical-offset="6328" max-vertical-offset="7905" />
@@ -507,7 +505,13 @@
     <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="1" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1037">
-          <folding />
+          <folding>
+            <element signature="e#368#1844#0" expanded="false" />
+            <element signature="e#3058#3562#0" expanded="false" />
+            <element signature="n#!!block;n#loadFeed#0" expanded="false" />
+            <element signature="n#!!block;n#loadCurrentConfig#0;n#!!block;n#loadRecentFeed#0" expanded="false" />
+            <element signature="n#!!block;n#makeETag#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,11 +660,6 @@
         <state line="116" column="0" selection-start="3168" selection-end="3168" vertical-scroll-proportion="0.40210527" vertical-offset="1781" max-vertical-offset="4505" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/services/esconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="11" selection-start="325" selection-end="325" vertical-scroll-proportion="0.46526316" vertical-offset="0" max-vertical-offset="475" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/q/q.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="13" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.37659034" vertical-offset="1008" max-vertical-offset="33031" />
@@ -706,31 +705,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="40" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OD/OD/api/providercontext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="151" selection-start="3049" selection-end="3049" vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="2822">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="30" selection-start="5131" selection-end="5131" vertical-scroll-proportion="0.0" vertical-offset="1163" max-vertical-offset="2125">
+        <state line="88" column="35" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="2822">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OD/OD/services/cacheConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.23460722" vertical-offset="0" max-vertical-offset="942">
+        <state line="13" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="26" selection-start="1337" selection-end="1354" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/node_modules/aws-sdk/lib/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="497" column="0" selection-start="15725" selection-end="15725" vertical-scroll-proportion="0.0" vertical-offset="8324" max-vertical-offset="9282">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/services/esconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="20" selection-start="68" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OD/OD/notifications/providerEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="99" selection-start="6615" selection-end="6615" vertical-scroll-proportion="0.54611653" vertical-offset="1016" max-vertical-offset="1428">
+          <folding>
+            <element signature="e#368#1844#0" expanded="false" />
+            <element signature="e#3058#3562#0" expanded="false" />
+            <element signature="n#!!block;n#loadFeed#0" expanded="false" />
+            <element signature="n#!!block;n#loadCurrentConfig#0;n#!!block;n#loadRecentFeed#0" expanded="false" />
+            <element signature="n#!!block;n#makeETag#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
