@@ -43,7 +43,7 @@ exports.publishEvent = function(provider, eventType) {
 
                         // Add the "next-archive" _link to the feed we are just closing, to point to the new one we are opening and save it
                         eventFeedObj._links.nextArchive = {
-                            href: '/notification/providers/' + conf.currentEventFeed
+                            href: '/providers/notifications/' + conf.currentEventFeed
                         };
                         var closedEventFeed = JSON.stringify(eventFeedObj);
                         (function(key) {
