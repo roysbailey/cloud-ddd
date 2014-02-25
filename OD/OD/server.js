@@ -35,5 +35,5 @@ app.get('/providers/notifications/:feedID', provEvents.getNotificationFeed);
 //#endregion REST interface for provider event sourcing
 
 // Start listening on a port
-app.listen(1337);
-//app.listen(process.env.PORT);
+app.listen(process.env.PORT || 1338);
+//app.listen();
