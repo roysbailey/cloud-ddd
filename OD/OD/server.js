@@ -3,6 +3,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var api = require('./api/providercontext');
 var provEvents = require('./notifications/providerEvents')
+var localPort = 8080;
 
 // Wire up express to handle http requests
 var express = require('express');
@@ -13,6 +14,8 @@ app.configure(function() {
     // Direct request for static types to the /public folder
     // Note: localhost/scripts/_references.js would mao to /public/scripts/_references.js in the project
     app.use(express.static(__dirname + '/public'));
+
+    // Disbale the auto population of the eTag based upon a "hash".  This allows us to use our own eTag strategy (which can be more optimised)
     app.disable('etag');
 });
 
@@ -35,5 +38,4 @@ app.get('/providers/notifications/:feedID', provEvents.getNotificationFeed);
 //#endregion REST interface for provider event sourcing
 
 // Start listening on a port
-app.listen(process.env.PORT || 1338);
-//app.listen();
+app.listen(process.env.PORT || localPort);
