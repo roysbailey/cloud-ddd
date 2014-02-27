@@ -20,7 +20,7 @@ app.configure(function() {
 });
 
 //var mongoUrl = process.env.IP + ':27017/OrgDir';
-var mongoUrl = 'localhost:27017/OrgDir';
+var mongoUrl = '127.0.0.1:27017/OrgDir';
 var db =  monk(mongoUrl);
 
 //#region REST interface for provider manipulation
